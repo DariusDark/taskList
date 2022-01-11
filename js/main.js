@@ -302,7 +302,6 @@ function addPointListenerToBtn(btn) {
         const x = event.pageX - this.offsetLeft;
         const y = event.pageY - this.offsetTop;
 
-        console.log(this.offsetLeft);
         btn.style.setProperty('--x', x + 'px');
         btn.style.setProperty('--y', y + 'px');
     });

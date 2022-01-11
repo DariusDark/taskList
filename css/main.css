@@ -138,6 +138,15 @@ body.modal__open {
 }
 
 
+.todo__edit {
+    display: flex;
+    gap: 8px;
+    align-content: flex-start;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+
 .btn {
     font-family: 'Saira Condensed', sans-serif;
     background: var(--tasksBgColor);
@@ -174,10 +183,6 @@ body.modal__open {
 
 .btns__redact {
     width: 80px;
-}
-
-.btn__edit {
-    margin-right: 8px;
 }
 .btn__edit:before {
     background: linear-gradient(145deg, #28c97e, #1e945d);
@@ -259,7 +264,7 @@ body.modal__open {
 .modal__open .modal-screen {
     background: #17172163;
     overflow-y: auto;
-    /* background: #171721; */
+    overflow-x: hidden;
 }
 
 .modal {
@@ -537,4 +542,14 @@ body.modal__open {
     border-right: 10px solid #3c74c7;
     border-top: 12px solid transparent;
     border-bottom: 12px solid transparent;
+}
+
+
+@media (max-width: 530px) {
+    .todo-form {
+        gap: 10px;
+    }
+    .todo__inputs {
+        flex-basis: 200px;
+    }
 }
