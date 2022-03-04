@@ -1,69 +1,138 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
+  <head>
+    <meta charset="UTF-8" />
     <!-- Дополнительные мета теги -->
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
-    <meta name="format-detection" content="telephone=no">
-    <meta name="robots" content="none">
-    <link rel="stylesheet" href="./css/main.css">
-    <title>Document</title>
-</head>
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"
+    />
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="robots" content="none" />
+    <link rel="stylesheet" href="./css/main.css" />
+    <title>Task List</title>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-1X7HXSSJSS"
+    ></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
 
-<body>
+      gtag("config", "G-1X7HXSSJSS");
+    </script>
+  </head>
+
+  <body>
     <div class="wrapper">
-        <div class="todo-form">
-            <div class="todo__inputs">
-                <h1 class="todo__title">To Do List</h1>
-                <div class="input__container">
-                    <input class="input" id="input" type="text" placeholder="Enter new task" required autocomplete="off">
-                    <span class="input__line"></span>
-                </div>
-                <button class="btn" id="btn"><span class="btn__text">Submit</span></button>
-            </div>
-            <div class="todo__edit">
-                <button class="btn btns__redact btn__edit" id="btnEdit"><span class="btn__text">Edit</span></button>
-                <button class="btn btns__redact btn__delete" id="btnDelete"><span class="btn__text">Delete</span></button>
-            </div>
+      <div class="todo-form">
+        <div class="todo__inputs">
+          <h1 class="todo__title">To Do List</h1>
+          <div class="input__container">
+            <input
+              class="input"
+              id="input"
+              type="text"
+              placeholder="Enter new task"
+              required
+              autocomplete="off"
+            />
+            <span class="input__line"></span>
+          </div>
+          <button class="btn" id="btn">
+            <span class="btn__text">Submit</span>
+          </button>
         </div>
-        <ul class="todo__list" id="toDoList">
-        </ul>
-        <div class="modal-screen" id="modalScreen">
-            <div class="modal modal__edit" id="modalScreenEdit">
-                <h5 class="modal__title">Edit Task</h5>
-                <div class="modal__container" id="modalEditSelect">
-                    <div class="err__message" id="modalEditErrMessage">Choose Task First</div>
-                    <div class="modal__select" id="modalEditSelectBtn" data-option="0">Choose Task</div>
-                    <div class="modal__select-items" id="modalEditOptions"></div>
-                </div>
-                <div class="modal__container">
-                    <textarea class="modal__text modal__input-text inactive" id="modalEditTextarea" placeholder="Task text will be here" disabled></textarea>
-                </div>
-                <div class="modal__btns">
-                    <button class="btn btns__edit btn__save" id="btnSave" data-id="1"><span class="btn__text">Save</span></button>
-                    <button class="btn btns__edit btn__cancel" id="btnCancel" data-id="0"><span class="btn__text">Cancel</span></button>
-                </div>
-            </div>
-            <div class="modal modal__delete" id="modalScreenDelete">
-                <h5 class="modal__title modal__title--red">Delete Task</h5>
-                <div class="modal__container" id="modalDeleteSelect">
-                    <div class="err__message" id="modalDeleteErrMessage">Choose Task First</div>
-                    <div class="modal__select" id="modalDeleteSelectBtn" data-option="0">Choose Task</div>
-                    <div class="modal__select-items" id="modalDeleteOptions"></div>
-                </div>
-                <div class="modal__container">
-                    <textarea class="modal__text modal__input-text inactive" id="modalDeleteTextarea" placeholder="Task text will be here" disabled></textarea>
-                </div>
-                <div class="modal__btns">
-                    <button class="btn btns__delete btn__save" id="btnModalDelete" data-id="1"><span class="btn__text">Delete</span></button>
-                    <button class="btn btns__delete btn__cancel" id="btnModalDeleteCancel" data-id="0"><span class="btn__text">Cancel</span></button>
-                </div>
-            </div>
+        <div class="todo__edit">
+          <button class="btn btns__redact btn__edit" id="btnEdit">
+            <span class="btn__text">Edit</span>
+          </button>
+          <button class="btn btns__redact btn__delete" id="btnDelete">
+            <span class="btn__text">Delete</span>
+          </button>
         </div>
+      </div>
+      <ul class="todo__list" id="toDoList"></ul>
+      <div class="modal-screen" id="modalScreen">
+        <div class="modal modal__edit" id="modalScreenEdit">
+          <h5 class="modal__title">Edit Task</h5>
+          <div class="modal__container" id="modalEditSelect">
+            <div class="err__message" id="modalEditErrMessage">
+              Choose Task First
+            </div>
+            <div class="modal__select" id="modalEditSelectBtn" data-option="0">
+              Choose Task
+            </div>
+            <div class="modal__select-items" id="modalEditOptions"></div>
+          </div>
+          <div class="modal__container">
+            <textarea
+              class="modal__text modal__input-text inactive"
+              id="modalEditTextarea"
+              placeholder="Task text will be here"
+              disabled
+            ></textarea>
+          </div>
+          <div class="modal__btns">
+            <button class="btn btns__edit btn__save" id="btnSave" data-id="1">
+              <span class="btn__text">Save</span>
+            </button>
+            <button
+              class="btn btns__edit btn__cancel"
+              id="btnCancel"
+              data-id="0"
+            >
+              <span class="btn__text">Cancel</span>
+            </button>
+          </div>
+        </div>
+        <div class="modal modal__delete" id="modalScreenDelete">
+          <h5 class="modal__title modal__title--red">Delete Task</h5>
+          <div class="modal__container" id="modalDeleteSelect">
+            <div class="err__message" id="modalDeleteErrMessage">
+              Choose Task First
+            </div>
+            <div
+              class="modal__select"
+              id="modalDeleteSelectBtn"
+              data-option="0"
+            >
+              Choose Task
+            </div>
+            <div class="modal__select-items" id="modalDeleteOptions"></div>
+          </div>
+          <div class="modal__container">
+            <textarea
+              class="modal__text modal__input-text inactive"
+              id="modalDeleteTextarea"
+              placeholder="Task text will be here"
+              disabled
+            ></textarea>
+          </div>
+          <div class="modal__btns">
+            <button
+              class="btn btns__delete btn__save"
+              id="btnModalDelete"
+              data-id="1"
+            >
+              <span class="btn__text">Delete</span>
+            </button>
+            <button
+              class="btn btns__delete btn__cancel"
+              id="btnModalDeleteCancel"
+              data-id="0"
+            >
+              <span class="btn__text">Cancel</span>
+            </button>
+          </div>
+        </div>
+      </div>
     </div>
 
     <script src="./js/main.js"></script>
-</body>
-
+  </body>
 </html>
